@@ -1,4 +1,4 @@
- .home{
-    background-color: #0b0b0b;
-    color: white;
- }
+.home{
+   background-color: var(--main-color);
+   overflow: hidden;
+}

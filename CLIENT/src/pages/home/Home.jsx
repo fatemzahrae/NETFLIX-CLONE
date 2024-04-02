@@ -1,9 +1,9 @@
-import { React, useEffect, useState } from "react";
-import "./home.css"
-import Navbar from  '../../components/navbar/Navbar'
-import Featured from '../../components/featured/Featured'
-import List from "../../components/list/List"
-import axios from "axios"
+import Navbar from "../../components/navbar/Navbar";
+import Featured from "../../components/featured/Featured";
+import "./home.css";
+import List from "../../components/list/List";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 const Home = ({ type }) => {
   const [lists, setLists] = useState([]);
@@ -19,8 +19,7 @@ const Home = ({ type }) => {
           {
             headers: {
               token:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZmEzODNhZTVhMmQ5ZWM1NzNlMTE3NSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTcxMTMyMzY4NiwiZXhwIjoxNzExNzU1Njg2fQ.J_FC5Q1tfCtyY-hzCsKdcMtli2s1I-8FhuHq2iwt4zY"
-              ,
+              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZmEzODNhZTVhMmQ5ZWM1NzNlMTE3NSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTcxMTkzNjE4MSwiZXhwIjoxNzEyMzY4MTgxfQ.Fmkg8Axabql-ypT450B8TXUx_-tqyPEyCKlmzo623Wg",
             },
           }
         );
@@ -41,6 +40,6 @@ const Home = ({ type }) => {
       ))}
     </div>
   );
-}
+};
 
-export default Home
+export default Home;
