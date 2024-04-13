@@ -30,9 +30,12 @@ router.post("/login", async (req,res) => {
         const bytes = cryptoJS.AES.decrypt(user.password, process.env.SECRET_KEY);
         const originalPassword = bytes.toString(cryptoJS.enc.Utf8);
 
-        originalPassword !== req.body.password && res.status(401).json("wrong password or username") ;
+        originalPassword !== req.body.password && 
+            res.status(401).json("wrong password or username") ;
         
-        const accessToken = jwt.sign({id : user._id, isAdmin: user.isAdmin},  process.env.SECRET_KEY, {expiresIn:"5d"});
+        const accessToken = jwt.sign({id : user._id, isAdmin: user.isAdmin},
+              process.env.SECRET_KEY, {expiresIn:"5d"});
+              
         const { password, ...info } = user._doc ;
         res.status(200).json({ ...info, accessToken});
 

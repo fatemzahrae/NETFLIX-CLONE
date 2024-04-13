@@ -13,7 +13,8 @@ export default function Featured({ type, setGenre }) {
         const res = await axios.get(`/movies/random?type=${type}`, {
           headers: {
             token:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZmEzODNhZTVhMmQ5ZWM1NzNlMTE3NSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTcxMTkzNjE4MSwiZXhwIjoxNzEyMzY4MTgxfQ.Fmkg8Axabql-ypT450B8TXUx_-tqyPEyCKlmzo623Wg"
+            "Bearer "+JSON.parse(localStorage.getItem("user")).accessToken,
+
           },
         });
         setContent(res.data[0]);

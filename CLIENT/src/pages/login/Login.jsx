@@ -2,6 +2,7 @@ import "./login.css";
 import {AuthContext } from "../../authContext/AuthContext";
 import { useState, useContext } from "react";
 import { login } from "../../authContext/apiCalls";
+import { Link } from "react-router-dom";
 
 
 export default function Login() {
@@ -25,13 +26,14 @@ export default function Login() {
         </div>
       </div>
       <div className="container">
-        <form>
+        <form id="log">
           <h1>Sign In</h1>
-          <input type="email" placeholder="Email or phone number" onChange={(e)=> setEmail(e.target.value)}/>
-          <input type="password" placeholder="Password" onChange={(e)=> setPassword(e.target.value)} />
+          <input type="email" name="log" placeholder="Email or phone number" onChange={(e)=> setEmail(e.target.value)}/>
+          <input type="password" name="log" placeholder="Password" onChange={(e)=> setPassword(e.target.value)} />
           <button className="loginButton" onClick={handleLogin }>Sign In</button>
           <span>
-            New to Netflix? <b>Sign up now.</b>
+            New to Netflix?
+            <Link to = "/register" > <b>Sign up now.</b> </Link>
           </span>
           <small>
             This page is protected by Google reCAPTCHA to ensure you're not a
