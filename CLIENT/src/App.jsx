@@ -13,6 +13,7 @@ import {
 } from "react-router-dom";
 import { useContext } from 'react';
 import {AuthContext} from "./authContext/AuthContext"
+import Account from './pages/account/Account';
 
 
 const App = () => {
@@ -29,6 +30,9 @@ const App = () => {
         <Route path="/movies" element={<Home type = "movies" />} />
         <Route path="/series" element={<Home type = "series" />} />
         <Route path="/watch" element={<Watch />} />
+        <Route path="/account" element={<Account />} />
+
+
         </>
         )}
       </Routes>

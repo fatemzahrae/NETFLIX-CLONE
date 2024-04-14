@@ -23,6 +23,10 @@ const Navbar = () => {
       dispatch(logout());
       navigate("/login");
     }
+    const handleClick = () => {
+      navigate("/account");
+    }
+
 
 
     return (
@@ -52,6 +56,7 @@ const Navbar = () => {
             <img
               src="https://images.pexels.com/photos/6899260/pexels-photo-6899260.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
               alt=""
+              onClick={handleClick}
             />
             <div className="profile">
               <ArrowDropDownIcon className="icon" />
