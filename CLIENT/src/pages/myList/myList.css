@@ -1,0 +1,18 @@
+@import "../../App.css";
+
+* {
+    background-color: black;
+  
+
+    .container1{
+        position: relative;
+        top: 100px;
+        margin: 50px;
+        background-color: aqua;
+        color: white;
+        font-size: 23px;
+
+    }
+  
+
+ }  

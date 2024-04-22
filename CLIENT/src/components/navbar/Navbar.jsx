@@ -47,7 +47,9 @@ const Navbar = () => {
               <span className="navbarmainLinks">Movies</span>
             </Link>
             <span>New and Popular</span>
+            <Link to="/my-list" className="link">
             <span>My List</span>
+            </Link>
           </div>
           <div className="right">
             <SearchIcon className="icon" />

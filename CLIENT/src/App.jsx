@@ -14,6 +14,7 @@ import {
 import { useContext } from 'react';
 import {AuthContext} from "./authContext/AuthContext"
 import Account from './pages/account/Account';
+import MyList from './pages/myList/MyList';
 
 
 const App = () => {
@@ -31,6 +32,8 @@ const App = () => {
         <Route path="/series" element={<Home type = "series" />} />
         <Route path="/watch" element={<Watch />} />
         <Route path="/account" element={<Account />} />
+        <Route path="/my-list" element={<MyList />} />
+
 
 
         </>
