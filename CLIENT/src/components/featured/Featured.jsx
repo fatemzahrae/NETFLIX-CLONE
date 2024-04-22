@@ -3,6 +3,7 @@ import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import "./featured.css";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { Link } from 'react-router-dom';
 
 export default function Featured({ type, setGenre }) {
   const [content, setContent] = useState({});
@@ -59,8 +60,10 @@ export default function Featured({ type, setGenre }) {
         <span className="desc">{content.desc}</span>
         <div className="buttons">
           <button className="play">
-            <PlayArrowIcon />
-            <span>Play</span>
+          <Link to={{ pathname: "/watch" }} className='link'>
+            <PlayArrowIcon  />
+            <span >Play</span>
+          </Link>
           </button>
           <button className="more">
             <InfoIcon />

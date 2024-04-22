@@ -61,10 +61,12 @@
           font-weight: 500;
           margin-right: 10px;
           cursor: pointer;
+          color: #0b0b0b;
   
           &.play {
             background-color: white;
-            color: var(--main-color);
+            color: #0b0b0b;
+
           }
   
           &.more {

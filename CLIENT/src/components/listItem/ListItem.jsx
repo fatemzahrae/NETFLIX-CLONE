@@ -31,7 +31,7 @@ export default function ListItem({ index, item }) {
   }, [item]);
 
   return (
-    <Link to={{ pathname: "/watch", movie: movie }}>
+    
       <div
         className="listItem"
         style={{ left: isHovered && index * 225 - 50 + index * 2.5 }}
@@ -43,12 +43,16 @@ export default function ListItem({ index, item }) {
           <>
             <div className="itemInfo">
               <div className="icons">
-                <PlayArrowIcon className="icon" />
+               <Link to={{ pathname: "/watch", movie: movie }} className="link">
+                  <PlayArrowIcon className="icon" />
+                </Link>
                 <AddIcon className="icon" />
                 <ThumbUpIcon className="icon" />
                 <ThumbDownIcon className="icon" />
               </div>
               <div className="itemInfoTop">
+                <span className="limit">+{movie.limit}</span>
+                <span>{movie.year}</span>
               </div>
               <div className="desc">{movie.desc}</div>
               <div className="genre">{movie.genre}</div>
@@ -56,6 +60,6 @@ export default function ListItem({ index, item }) {
           </>
         )}
       </div>
-    </Link>
+   
   );
 }

@@ -4,6 +4,7 @@ import "./home.css";
 import List from "../../components/list/List";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { ListItemButton } from "@mui/material";
 
 const Home = ({ type }) => {
   const [lists, setLists] = useState([]);
@@ -36,8 +37,10 @@ const Home = ({ type }) => {
     <div className="home">
       <Navbar />
       <Featured type={type} setGenre={setGenre} />
-      {lists.map((list) => (
-        <List list={list} />
+      <br />
+      
+      {lists.map((list, i) => (
+        <List list={list} key={i} /> 
       ))}
     </div>
   );

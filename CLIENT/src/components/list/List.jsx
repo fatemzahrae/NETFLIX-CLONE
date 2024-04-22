@@ -26,8 +26,12 @@
       }
     };
     return (
+      
       <div className="list">
+        <br/>
         <span className="listTitle">{list.title}</span>
+        <br/>
+        <br/>
         <div className="wrapper">
           <ArrowBackIosIcon
             className="sliderArrow left"
@@ -36,7 +40,7 @@
           />
           <div className="container" ref={listRef}>
             {list.content.map((item, i) => (
-              <ListItem index={i} item={item} />
+              <ListItem index={i} item={item} key={i} />
             ))}
           </div>
           <ArrowForwardIosIcon
@@ -44,6 +48,7 @@
             onClick={() => handleClick("right")}
           />
         </div>
+        <br/>
       </div>
     );
   }

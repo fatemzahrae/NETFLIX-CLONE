@@ -1,12 +1,15 @@
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import "./watch.css";
+import { Link } from "react-router-dom";
 
 export default function Watch() {
   return (
     <div className="watch">
       <div className="back">
+        <Link to="/">
         <ArrowBackIcon />
         Home
+        </Link>
       </div>
       <video
         className="video"

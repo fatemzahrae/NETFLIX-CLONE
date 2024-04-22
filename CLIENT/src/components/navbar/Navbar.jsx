@@ -54,7 +54,7 @@ const Navbar = () => {
             <span>KID</span>
             <NotificationsNoneIcon className="icon" />
             <img
-              src="https://images.pexels.com/photos/6899260/pexels-photo-6899260.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
+              src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png"
               alt=""
               onClick={handleClick}
             />
