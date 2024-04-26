@@ -38,19 +38,19 @@ export default function Featured({ type, setGenre }) {
             onChange={(e) => setGenre(e.target.value)}
           >
             <option>Genre</option>
-            <option value="adventure">Adventure</option>
-            <option value="comedy">Comedy</option>
+            <option value="Adventure">Adventure</option>
+            <option value="Comedy">Comedy</option>
             <option value="crime">Crime</option>
             <option value="fantasy">Fantasy</option>
             <option value="historical">Historical</option>
             <option value="horror">Horror</option>
             <option value="romance">Romance</option>
             <option value="sci-fi">Sci-fi</option>
-            <option value="thriller">Thriller</option>
+            <option value="Thriller">Thriller</option>
             <option value="western">Western</option>
             <option value="animation">Animation</option>
             <option value="drama">Drama</option>
-            <option value="documentary">Documentary</option>
+            <option value="Documentary">Documentary</option>
           </select>
         </div>
       )}
