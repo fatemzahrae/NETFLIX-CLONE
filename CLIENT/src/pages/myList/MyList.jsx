@@ -11,15 +11,27 @@ import './myList.css';
 import "../../components/listItem/listItem.css"
 
 export default function MyList() {
-  const savedItems = [
-    "65fcd76abcbdf398b2213ee0",
-    "65fcdc23bcbdf398b2213ee5",
-    "66004c6a2997b9ef5dc5348b",
-    "660b64fd28fb6e56e8620817"
-  ];
-
+  const [savedItems, setSavedItems] = useState([]);
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const [movies, setMovies] = useState([]);
+
+  useEffect(() => {
+    const fetchSavedItems = async () => {
+      try {
+        const user = JSON.parse(localStorage.getItem('user'));
+        const res = await axios.get(`/movies/user/${user._id}`, {
+          headers: {
+            token: `Bearer ${user.accessToken}`,
+          },
+        });
+        setSavedItems(res.data);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+
+    fetchSavedItems();
+  }, []);
 
   useEffect(() => {
     const fetchMovies = async () => {
@@ -39,7 +51,7 @@ export default function MyList() {
     };
 
     fetchMovies();
-  }, []);
+  }, [savedItems]);
 
   return (
     <div className="myList">

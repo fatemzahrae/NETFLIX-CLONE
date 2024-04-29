@@ -1,8 +1,73 @@
 const router = require("express").Router();
 const Movie = require("../models/Movie");
+const SavedItem = require("../models/SavedItems");
+
 const verify = require("../verifyToken");
 
+
+router.post("/add", verify, async (req, res) => {
+  try {
+    const { userId, movieId } = req.body;
+
+    if (!userId || !movieId) {
+      return res.status(400).json("Missing userId or movieId");
+    }
+
+    const newSavedItem = new SavedItem({
+      userId,
+      movieId,
+    });
+
+    const savedItem = await newSavedItem.save();
+
+    res.status(201).json(savedItem);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json(err);
+  }
+});
+
+router.get("/check", verify, async (req, res) => {
+  try {
+    const userId = req.query.userId;
+    const movieId = req.query.movieId;
+
+    if (!userId || !movieId) {
+      return res.status(400).json("Missing userId or movieId");
+    }
+
+    const savedItem = await SavedItem.findOne({ userId, movieId });
+
+    res.status(200).json({ exists: savedItem !== null });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json(err);
+  }
+});
+
+
 //CREATE
+
+
+router.get("/user/:userId", verify, async (req, res) => {
+  try {
+    const userId = req.params.userId;
+
+    if (!userId) {
+      return res.status(400).json("Missing userId");
+    }
+
+    const savedItems = await SavedItem.find({ userId });
+
+    const movieIds = savedItems.map(item => item.movieId);
+
+    res.status(200).json(movieIds);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json(err);
+  }
+});
+
 
 router.post("/", verify, async (req, res) => {
   if (req.user.isAdmin) {

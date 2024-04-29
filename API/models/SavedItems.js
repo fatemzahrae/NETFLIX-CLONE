@@ -10,11 +10,8 @@ const savedItemSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Movie',
         required: true
-    },
-    createdAt: {
-        type: Date,
-        default: Date.now
     }
+    
 });
 
 const SavedItem = mongoose.model('SavedItem', savedItemSchema);
